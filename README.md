@@ -82,11 +82,6 @@ package for details.
 Thank you for considering contributing to Nova mail manager! Please create a pull request with your contributions with 
 detailed explanation of the changes you are proposing.
 
-## Security Vulnerabilities
-
-If you found a security vulnerability with in this package, Please do not use the issue tracker. Instead send an email 
-to `srinathreddydudi@gmail.com`. All security vulnerabilities are addressed promptly.
-
 ## License
 
 This package is open-sourced software licensed under the [MIT license](LICENSE.md).
