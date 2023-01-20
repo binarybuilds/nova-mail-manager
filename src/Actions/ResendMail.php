@@ -11,6 +11,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Laravel\Nova\Actions\DestructiveAction;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class ResendMail extends DestructiveAction
 {
@@ -25,12 +26,11 @@ class ResendMail extends DestructiveAction
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        foreach ($models as $model)
-        {
+        foreach ($models as $model) {
             MailManager::resendMail($model);
         }
 
-        return Action::message( $models->count() . ' '. __('Mail(s) retried successfully'));
+        return Action::message($models->count() . ' ' . __('Mail(s) retried successfully'));
     }
 
     public function name()
@@ -43,7 +43,7 @@ class ResendMail extends DestructiveAction
      *
      * @return array
      */
-    public function fields()
+    public function fields(NovaRequest $request)
     {
         return [];
     }

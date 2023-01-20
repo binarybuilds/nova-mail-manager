@@ -37,7 +37,7 @@ class NovaMailResource extends Resource
     /**
      * @var bool
      */
-    public static $displayInNavigation = false;
+    public static $displayInNavigation = true;
 
     /**
      * @var int
@@ -52,33 +52,26 @@ class NovaMailResource extends Resource
     {
         return [
             ID::make(),
-
             Text::make(__('Uuid'), 'uuid')->onlyOnDetail(),
-
             Text::make(__('Mailable'), 'mailable_name'),
-
             Text::make(__('Subject'), 'subject'),
-
-            Text::make(__('Recipients'), function (){
+            Text::make(__('Recipients'), function () {
                 return implode(', ', $this->recipients);
             }),
-
             Boolean::make(__('Is Queued'), 'is_queued'),
-
             Boolean::make(__('Is Sent'), 'is_sent'),
-
             Number::make(__('Tries'), 'tries'),
         ];
     }
 
-    public function actions( Request $request )
+    public function actions(Request $request)
     {
         return [
             new ResendMail
         ];
     }
 
-    public function filters( Request $request )
+    public function filters(Request $request)
     {
         return [
             new MailableFilter,
@@ -89,7 +82,7 @@ class NovaMailResource extends Resource
         ];
     }
 
-    public function cards( Request $request )
+    public function cards(Request $request)
     {
         return [
             new EmailsPerDay,
@@ -117,7 +110,7 @@ class NovaMailResource extends Resource
         return false;
     }
 
-    public function authorizedToUpdate( Request $request )
+    public function authorizedToUpdate(Request $request)
     {
         return false;
     }
