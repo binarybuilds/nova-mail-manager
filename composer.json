@@ -3,6 +3,7 @@
     "description": "A Laravel Nova tool to easily resend system generated mails without going through application flow.",
     "keywords": ["laravel", "nova", "mail", "email", "monitoring"],
     "license": "MIT",
+    "abandoned" : true,
     "authors": [
         {
             "name": "Srinath Reddy Dudi",
